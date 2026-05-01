@@ -1,7 +1,7 @@
-Source: deepin-screen-recorder
+Source: velora-screen-recorder
 Section: utils
 Priority: optional
-Maintainer: Deepin Packages Builder <packages@deepin.com>
+Maintainer: Lingmo OS Team <team@lingmo.org>
 Build-Depends: debhelper,
  pkg-config,
 # qt
@@ -60,8 +60,8 @@ Build-Depends: debhelper,
  libprocps-dev | libproc2-dev,
  portaudio19-dev,
  libv4l-dev
-Standards-Version: 3.9.8
-Homepage: https://github.com/linuxdeepin/deepin-screen-recorder
+Standards-Version: 4.5.0
+Homepage: https://github.com/LingmoOS/velora-screen-recorder/
 
 Package: deepin-screen-recorder
 Architecture: any
