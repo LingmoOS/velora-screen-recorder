@@ -24,7 +24,7 @@ Build-Depends: debhelper,
  libdtk6widget-dev,
  dde-tray-loader-dev | dde-dock-dev,
  libffmpegthumbnailer-dev,
- deepin-desktop-base,
+ lingmo-desktop-base,
 # opencv
  libopencv-mobile-dev,
 # gstreamer

@@ -5,7 +5,7 @@
 # 1050 新添加Wayland相关库
 # 103x 不支持滚动截图和ocr
 # 102x DBus接口Server中不支持startdde相关接口
-# /etc/os-version 依赖包deepin-desktop-base
+# /etc/os-version 依赖包lingmo-desktop-base
 SYS_INFO=$$system("cat /etc/os-version")
 message("SYS_INFO: " $$SYS_INFO)
 
