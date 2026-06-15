@@ -22,7 +22,7 @@ Build-Depends: debhelper,
 # dde
  libdtk6gui-dev,
  libdtk6widget-dev,
- dde-tray-loader-dev | dde-dock-dev,
+ velora-tray-loader-dev | dde-dock-dev,
  libffmpegthumbnailer-dev,
  lingmo-desktop-base,
 # opencv
