@@ -55,7 +55,7 @@ const QString DBUS_FUNC_ON_PAUSE = "onPause";
 static QDBusMessage callTrayTimeIcon(const QString &function)
 {
     qCDebug(dsrApp) << "Calling tray time icon function:" << function;
-    QDBusInterface timeInterface("com.deepin.ScreenRecorder.time",
+    QDBusInterface timeInterface("com.lingmo.ScreenRecorder.time",
                                  "/com/deepin/ScreenRecorder/time",
                                  "com.deepin.ScreenRecorder.time",
                                  QDBusConnection::sessionBus());
@@ -68,7 +68,7 @@ static QDBusMessage callTrayTimeIcon(const QString &function)
 static QDBusMessage callTrayShotIcon(const QString &function)
 {
     qCDebug(dsrApp) << "Calling tray shot icon function:" << function;
-    QDBusInterface shotInterface("com.deepin.ShotRecorder.PanelStatus",
+    QDBusInterface shotInterface("com.lingmo.ShotRecorder.PanelStatus",
                                  "/com/deepin/ShotRecorder/PanelStatus",
                                  "com.deepin.ShotRecorder.PanelStatus",
                                  QDBusConnection::sessionBus());
@@ -81,7 +81,7 @@ static QDBusMessage callTrayShotIcon(const QString &function)
 static QDBusMessage callTrayRecorderIcon(const QString &function)
 {
     qCDebug(dsrApp) << "Calling tray recorder icon function:" << function;
-    QDBusInterface recorderInterface("com.deepin.ShotRecorder.Recorder.PanelStatus",
+    QDBusInterface recorderInterface("com.lingmo.ShotRecorder.Recorder.PanelStatus",
                                      "/com/deepin/ShotRecorder/Recorder/PanelStatus",
                                      "com.deepin.ShotRecorder.Recorder.PanelStatus",
                                      QDBusConnection::sessionBus());

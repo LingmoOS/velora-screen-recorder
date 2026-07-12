@@ -67,10 +67,10 @@ private:
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     // For V20 or older
-    // Audio interface com.deepin.daemon.Audio
-    QScopedPointer<com::deepin::daemon::Audio> m_audioInterface;
+    // Audio interface com.lingmo.daemon.Audio
+    QScopedPointer<com::lingmo::daemon::Audio> m_audioInterface;
     // Audio Source (Input Source)
-    QScopedPointer<com::deepin::daemon::AudioSource::Source> m_defaultSource;
+    QScopedPointer<com::lingmo::daemon::AudioSource::Source> m_defaultSource;
 #endif
 
     // All available input ports.except loopback port.

@@ -23,14 +23,14 @@ class QVariant;
 QT_END_NAMESPACE
 
 /*
- * Adaptor class for interface com.deepin.Screenshot
+ * Adaptor class for interface com.lingmo.Screenshot
  */
 class DBusScreenshotService: public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.Screenshot")
+    Q_CLASSINFO("D-Bus Interface", "com.lingmo.Screenshot")
     Q_CLASSINFO("D-Bus Introspection", ""
-                "  <interface name=\"com.deepin.Screenshot\">\n"
+                "  <interface name=\"com.lingmo.Screenshot\">\n"
                 "    <method name=\"StartScreenshot\"/>\n"
                 "    <method name=\"DelayScreenshot\">\n"
                 "      <arg direction=\"in\" type=\"x\"/>\n"

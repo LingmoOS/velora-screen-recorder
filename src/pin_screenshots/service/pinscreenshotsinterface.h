@@ -15,7 +15,7 @@ class PinScreenShotsInterface: public QDBusAbstractInterface
 public:
     static inline const char *staticInterfaceName()
     {
-        return "com.deepin.PinScreenShots";
+        return "com.lingmo.PinScreenShots";
     }
 
 public:
@@ -79,7 +79,7 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
 };
 namespace com {
-namespace deepin {
+namespace lingmo {
 typedef ::PinScreenShotsInterface PinScreenShots;
 }
 }

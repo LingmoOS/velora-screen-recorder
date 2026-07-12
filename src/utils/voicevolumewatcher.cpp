@@ -12,8 +12,8 @@
 #include "utils.h"
 #include "log.h"
 
-static const QString kV20AudioService = "com.deepin.daemon.Audio";
-static const QString kV20AudioPath = "/com/deepin/daemon/Audio";
+static const QString kV20AudioService = "com.lingmo.daemon.Audio";
+static const QString kV20AudioPath = "/com/lingmo/daemon/Audio";
 
 voiceVolumeWatcher::voiceVolumeWatcher(QObject *parent)
     : voiceVolumeWatcher(kV20AudioService, kV20AudioPath, QDBusConnection::sessionBus(), parent)
@@ -56,7 +56,7 @@ voiceVolumeWatcher::voiceVolumeWatcher(const QString &service, const QString &pa
     } else {
         qCInfo(dsrApp) << "Using version 1.0 audio service";
 
-        // initialize the DUS interface, check whether an audio interface exists com.deepin.daemon.Audio
+        // initialize the DUS interface, check whether an audio interface exists com.lingmo.daemon.Audio
         if (QDBusConnection::sessionBus().interface()->isServiceRegistered(kV20AudioService).value()) {
             initV20DeviceWatcher();
             m_isExistSystemAudio = true;
@@ -212,26 +212,26 @@ void voiceVolumeWatcher::initV20DeviceWatcher()
 {
     qCDebug(dsrApp) << "Initializing V20 device watcher.";
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    m_audioInterface.reset(new com::deepin::daemon::Audio::Audio(kV20AudioService, kV20AudioPath, QDBusConnection::sessionBus(), this));
-    m_defaultSource.reset(new com::deepin::daemon::AudioSource::Source(
+    m_audioInterface.reset(new com::lingmo::daemon::Audio::Audio(kV20AudioService, kV20AudioPath, QDBusConnection::sessionBus(), this));
+    m_defaultSource.reset(new com::lingmo::daemon::AudioSource::Source(
         kV20AudioService, m_audioInterface->defaultSource().path(), QDBusConnection::sessionBus(), this));
     qCDebug(dsrApp) << "DBus interfaces for V20 audio initialized.";
 
     connect(
-        m_audioInterface.get(), &com::deepin::daemon::Audio::DefaultSourceChanged, this, [this](const QDBusObjectPath &value) {
+        m_audioInterface.get(), &com::lingmo::daemon::Audio::DefaultSourceChanged, this, [this](const QDBusObjectPath &value) {
             qCInfo(dsrApp) << "Input device change from:"
                     << "\nactive port:" << m_defaultSource->activePort().name << "\ndevice name:" << m_defaultSource->name();
             qCDebug(dsrApp) << "Default source changed signal received. New path:" << value.path();
 
             m_defaultSource.reset(
-                new com::deepin::daemon::AudioSource::Source(kV20AudioService, value.path(), QDBusConnection::sessionBus(), this));
+                new com::lingmo::daemon::AudioSource::Source(kV20AudioService, value.path(), QDBusConnection::sessionBus(), this));
             qCDebug(dsrApp) << "Default source updated to new path.";
 
             qCInfo(dsrApp) << "\nTo:"
                     << "\nactive port:" << m_defaultSource->activePort().name << "\ndevice name:" << m_defaultSource->name();
         });
 
-    connect(m_audioInterface.get(), &com::deepin::daemon::Audio::CardsChanged, this, &voiceVolumeWatcher::onCardsChanged);
+    connect(m_audioInterface.get(), &com::lingmo::daemon::Audio::CardsChanged, this, &voiceVolumeWatcher::onCardsChanged);
     qCDebug(dsrApp) << "Connected CardsChanged signal.";
 
     // init current card info

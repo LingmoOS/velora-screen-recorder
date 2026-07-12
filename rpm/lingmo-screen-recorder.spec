@@ -1,10 +1,10 @@
 %global soname screen_shot_recorder
-Name:           deepin-screen-recorder
+Name:           lingmo-screen-recorder
 Version:        5.8.0
 Release:        1
 Summary:        Deepin Screen Recorder
 License:        GPLv3+
-URL:            https://github.com/linuxdeepin/deepin-screen-recorder
+URL:            https://github.com/linuxdeepin/lingmo-screen-recorder
 Source0:        %{name}_%{version}.orig.tar.xz
 
 BuildRequires:  qt5-linguist
@@ -103,7 +103,7 @@ export PATH=%{_qt5_bindir}:$PATH
 * Fri Jul 14 2017 mosquito <sensor.wen@gmail.com> - 2.3-1.git6184619
 - Update to 2.3
 
-* Fri May 19 2017 mosquito <sensor.wen@gmail.com> - 1.8-1.gitc4040d0 
+* Fri May 19 2017 mosquito <sensor.wen@gmail.com> - 1.8-1.gitc4040d0
 - Update to 1.8
 
 * Tue Mar  7 2017 mosquito <sensor.wen@gmail.com> - 1.3-1.git8e0a4b3

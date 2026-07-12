@@ -17,14 +17,14 @@ class QVariant;
 QT_END_NAMESPACE
 
 /*
- * Adaptor class for interface com.deepin.daemon.SoundEffect
+ * Adaptor class for interface com.lingmo.daemon.SoundEffect
  */
 class SoundEffectAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.daemon.SoundEffect")
+    Q_CLASSINFO("D-Bus Interface", "com.lingmo.daemon.SoundEffect")
     Q_CLASSINFO("D-Bus Introspection", ""
-"  <interface name=\"com.deepin.daemon.SoundEffect\">\n"
+"  <interface name=\"com.lingmo.daemon.SoundEffect\">\n"
 "    <method name=\"PlaySystemSound\">\n"
 "      <arg direction=\"in\" type=\"s\"/>\n"
 "    </method>\n"

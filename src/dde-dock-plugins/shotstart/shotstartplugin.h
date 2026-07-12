@@ -28,7 +28,7 @@ class ShotStartPlugin : public QObject, PluginsItemInterface
     Q_OBJECT
     Q_INTERFACES(PluginsItemInterface)
     Q_PLUGIN_METADATA(IID "com.deepin.dock.shotstart" FILE "shotstart.json")
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.ShotRecorder.PanelStatus")
+    Q_CLASSINFO("D-Bus Interface", "com.lingmo.ShotRecorder.PanelStatus")
 
 public:
     explicit ShotStartPlugin(QObject *parent = nullptr);

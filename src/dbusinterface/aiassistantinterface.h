@@ -24,7 +24,7 @@ class AiAssistantInterface: public QDBusAbstractInterface
 public:
     static inline const char *staticInterfaceName()
     {
-        return "com.deepin.copilot";
+        return "com.lingmo.copilot";
     }
 
 public:

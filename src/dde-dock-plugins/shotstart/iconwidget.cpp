@@ -115,13 +115,13 @@ void IconWidget::invokedMenuItem(const QString &menuId)
     if (menuId == "shot") {
         qCDebug(dsrApp) << "Starting screenshot via DBus";
         QDBusInterface shotDBusInterface(
-            "com.deepin.Screenshot", "/com/deepin/Screenshot", "com.deepin.Screenshot", QDBusConnection::sessionBus());
+            "com.lingmo.Screenshot", "/com/lingmo/Screenshot", "com.lingmo.Screenshot", QDBusConnection::sessionBus());
 
         shotDBusInterface.asyncCall("StartScreenshot");
         qCDebug(dsrApp) << "StartScreenshot async call initiated.";
     } else if (menuId == "recorder") {
         qCDebug(dsrApp) << "Stopping recording via DBus";
-        QDBusInterface shotDBusInterface("com.deepin.ScreenRecorder",
+        QDBusInterface shotDBusInterface("com.lingmo.ScreenRecorder",
                                          "/com/deepin/ScreenRecorder",
                                          "com.deepin.ScreenRecorder",
                                          QDBusConnection::sessionBus());

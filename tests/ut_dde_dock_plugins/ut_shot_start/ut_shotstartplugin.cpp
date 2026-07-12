@@ -63,7 +63,7 @@ TEST_F(TestShotStartPlugin, itemTipsWidget)
 
 TEST_F(TestShotStartPlugin, itemCommand)
 {
-    EXPECT_TRUE("dbus-send --print-reply --dest=com.deepin.Screenshot /com/deepin/Screenshot com.deepin.Screenshot.StartScreenshot"
+    EXPECT_TRUE("dbus-send --print-reply --dest=com.lingmo.Screenshot /com/lingmo/Screenshot com.lingmo.Screenshot.StartScreenshot"
                 == m_shotStartPlugin->itemCommand(PLUGIN_NAME));
     EXPECT_TRUE(nullptr == m_shotStartPlugin->itemCommand("test"));
 }

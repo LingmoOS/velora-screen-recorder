@@ -90,7 +90,7 @@ isEmpty(DSRDIR):DSRDIR=$$PREFIX/share/deepin-pin-screenshots
 
 #Dbus文件
 dbus_service.path=$$PREFIX/share/dbus-1/services
-dbus_service.files=./com.deepin.PinScreenShots.service
+dbus_service.files=./com.lingmo.PinScreenShots.service
 
 include(accessibility/accessible.pri)
 

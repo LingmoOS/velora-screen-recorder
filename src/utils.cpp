@@ -102,13 +102,13 @@ QString Utils::getCurrentAudioChannel()
 {
     const QString serviceName{AUDIO_NAME};
 
-    QScopedPointer<com::deepin::daemon::Audio> audioInterface;
-    QScopedPointer<com::deepin::daemon::audio::Sink> defaultSink;
+    QScopedPointer<com::lingmo::daemon::Audio> audioInterface;
+    QScopedPointer<com::lingmo::daemon::audio::Sink> defaultSink;
 
     audioInterface.reset(
-        new com::deepin::daemon::Audio(serviceName, AUDIO_PATH, QDBusConnection::sessionBus(), nullptr));
+        new com::lingmo::daemon::Audio(serviceName, AUDIO_PATH, QDBusConnection::sessionBus(), nullptr));
 
-    defaultSink.reset(new com::deepin::daemon::audio::Sink(
+    defaultSink.reset(new com::lingmo::daemon::audio::Sink(
         serviceName, audioInterface->defaultSink().path(), QDBusConnection::sessionBus(), nullptr));
     qCDebug(dsrApp) << "Default sink reset.";
     QString str_output = "";
@@ -700,7 +700,7 @@ void Utils::notSupportWarn()
 {
     qCInfo(dsrApp) << "notSupportWarn() called.";
     DDialog warnDlg;
-    warnDlg.setIcon(QIcon::fromTheme("deepin-screen-recorder"));
+    warnDlg.setIcon(QIcon::fromTheme("lingmo-screen-recorder"));
     warnDlg.setMessage(tr("Screen recording is not supported at present"));
     warnDlg.addSpacing(20);
     warnDlg.addButton(tr("Exit"));

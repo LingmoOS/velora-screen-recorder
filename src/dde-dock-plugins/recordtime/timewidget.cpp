@@ -377,7 +377,7 @@ void TimeWidget::mouseReleaseEvent(QMouseEvent *e)
 #endif
         if (flag) {
             qCDebug(dsrApp) << "Click the taskbar plugin! Dbus call stop recording screen!";;
-            QDBusInterface notification(QString::fromUtf8("com.deepin.ScreenRecorder"),
+            QDBusInterface notification(QString::fromUtf8("com.lingmo.ScreenRecorder"),
                                         QString::fromUtf8("/com/deepin/ScreenRecorder"),
                                         QString::fromUtf8("com.deepin.ScreenRecorder"),
                                         QDBusConnection::sessionBus());

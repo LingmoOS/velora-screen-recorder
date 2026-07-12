@@ -75,7 +75,7 @@ void DBusScreenshotService::DelayScreenshot(qlonglong in0)
 {
     qCInfo(dsrApp) << "Starting delayed screenshot with delay:" << in0;
     qCDebug(dsrApp) << "DBus screenshot service! delay screenshot";
-    // handle method call com.deepin.Screenshot.DelayScreenshot
+    // handle method call com.lingmo.Screenshot.DelayScreenshot
     QJsonObject obj{
         {"tid", EventLogUtils::Start},
         {"version", QCoreApplication::applicationVersion()},
@@ -98,7 +98,7 @@ void DBusScreenshotService::NoNotifyScreenshot()
     qCDebug(dsrApp) << "NoNotifyScreenshot method called.";
     qCInfo(dsrApp) << "Starting no-notify screenshot";
     qCDebug(dsrApp) << "DBus screenshot service! nonofiy screenshot";
-    // handle method call com.deepin.Screenshot.NoNotify
+    // handle method call com.lingmo.Screenshot.NoNotify
     if (!m_singleInstance) {
         qCDebug(dsrApp) << "Starting new no-notify screenshot instance";
         parent()->noNotifyScreenshot();
@@ -174,7 +174,7 @@ void DBusScreenshotService::TopWindowScreenshot()
 void DBusScreenshotService::FullscreenScreenshot()
 {
     qCDebug(dsrApp) << "FullscreenScreenshot method called.";
-    // handle method call com.deepin.Screenshot.Fullscreenshot
+    // handle method call com.lingmo.Screenshot.Fullscreenshot
     QJsonObject obj{
         {"tid", EventLogUtils::Start},
         {"version", QCoreApplication::applicationVersion()},
@@ -194,7 +194,7 @@ void DBusScreenshotService::SavePathScreenshot(const QString &in0)
 {
     qCInfo(dsrApp) << "Starting save path screenshot with path:" << in0;
     qCDebug(dsrApp) << "DBus screenshot service! SavePath screenshot";
-    // handle method call com.deepin.Screenshot.SavePath
+    // handle method call com.lingmo.Screenshot.SavePath
     if (!m_singleInstance) {
         qCDebug(dsrApp) << "Starting new save path screenshot instance";
         parent()->savePathScreenshot(in0);

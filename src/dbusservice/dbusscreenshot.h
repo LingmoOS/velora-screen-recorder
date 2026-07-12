@@ -16,14 +16,14 @@
 #include <QtDBus/QtDBus>
 
 /*
- * Proxy class for interface com.deepin.DeepinScreenshot
+ * Proxy class for interface com.lingmo.DeepinScreenshot
  */
 class DBusScreenshot: public QDBusAbstractInterface
 {
     Q_OBJECT
 public:
     static inline const char *staticInterfaceName()
-    { return "com.deepin.DeepinScreenshot"; }
+    { return "com.lingmo.DeepinScreenshot"; }
 
 public:
     DBusScreenshot(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = nullptr);
@@ -73,7 +73,7 @@ Q_SIGNALS: // SIGNALS
 };
 
 namespace com {
-  namespace deepin {
+  namespace lingmo {
     typedef ::DBusScreenshot DeepinScreenshot;
   }
 }

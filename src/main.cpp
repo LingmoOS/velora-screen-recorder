@@ -210,8 +210,8 @@ int main(int argc, char *argv[])
 #endif
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    if (dbus.registerService("com.deepin.ScreenRecorder")) {
-        qCDebug(dsrApp) << "DBus service com.deepin.ScreenRecorder registered successfully.";
+    if (dbus.registerService("com.lingmo.ScreenRecorder")) {
+        qCDebug(dsrApp) << "DBus service com.lingmo.ScreenRecorder registered successfully.";
         app->setOrganizationName("deepin");
         app->setApplicationName("deepin-screen-recorder");
         app->setApplicationVersion("1.0");
@@ -326,13 +326,13 @@ int main(int argc, char *argv[])
         qCDebug(dsrApp) << "Screenshot window initialized with launch mode.";
         DBusScreenshotService dbusService(&window);
         // Register debus service.
-        dbus.registerObject("/com/deepin/ScreenRecorder",
+        dbus.registerObject("/com/lingmo/ScreenRecorder",
                             &window,
                             QDBusConnection::ExportScriptableSignals | QDBusConnection::ExportScriptableSlots | QDBusConnection::ExportScriptableProperties);
-        qCDebug(dsrApp) << "DBus object /com/deepin/ScreenRecorder registered.";
+        qCDebug(dsrApp) << "DBus object /com/lingmo/ScreenRecorder registered.";
         QDBusConnection conn = QDBusConnection::sessionBus();
 
-        if (!conn.registerService("com.deepin.Screenshot") || !conn.registerObject("/com/deepin/Screenshot", &window)) {
+        if (!conn.registerService("com.lingmo.Screenshot") || !conn.registerObject("/com/lingmo/Screenshot", &window)) {
             qDebug() << "deepin-screenshot is running!";
             qCDebug(dsrApp) << "deepin-screenshot service already running. Quitting app.";
             qApp->quit();
@@ -409,9 +409,9 @@ int main(int argc, char *argv[])
         qCDebug(dsrApp) << "Exiting application event loop.";
         return app->exec();
     } else {
-        qCDebug(dsrApp) << "DBus service com.deepin.ScreenRecorder already registered by another instance.";
+        qCDebug(dsrApp) << "DBus service com.lingmo.ScreenRecorder already registered by another instance.";
         // Send DBus message to stop screen-recorder if found other screen-recorder DBus service has started.
-        QDBusInterface notification("com.deepin.ScreenRecorder",
+        QDBusInterface notification("com.lingmo.ScreenRecorder",
                                     "/com/deepin/ScreenRecorder",
                                     "com.deepin.ScreenRecorder",
                                     QDBusConnection::sessionBus());

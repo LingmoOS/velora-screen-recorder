@@ -43,8 +43,8 @@ void RecordTimePlugin::init(PluginProxyInterface *proxyInter)
     connect(m_dBusService, SIGNAL(recording()), this, SLOT(onRecording()));
     connect(m_dBusService, SIGNAL(pause()), this, SLOT(onPause()));
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
-    if (sessionBus.registerService("com.deepin.ScreenRecorder.time") &&
-        sessionBus.registerObject("/com/deepin/ScreenRecorder/time", this, QDBusConnection::ExportAdaptors)) {
+    if (sessionBus.registerService("com.lingmo.ScreenRecorder.time") &&
+        sessionBus.registerObject("/com/lingmo/ScreenRecorder/time", this, QDBusConnection::ExportAdaptors)) {
         qInfo() << "dbus service registration success!";
     } else {
         qWarning() << "dbus service registration failed!";

@@ -41,7 +41,7 @@ void SoundEffectAdaptor::setEnabled(bool value)
 
 void SoundEffectAdaptor::PlaySystemSound(const QString &in0)
 {
-    // handle method call com.deepin.daemon.SoundEffect.PlaySystemSound
+    // handle method call com.lingmo.daemon.SoundEffect.PlaySystemSound
     QMetaObject::invokeMethod(parent(), "PlaySystemSound", Q_ARG(QString, in0));
 }
 

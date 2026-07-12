@@ -141,9 +141,9 @@ void ShotStartRecordPlugin::init(PluginProxyInterface *proxyInter)
     }
 
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
-    if (sessionBus.registerService("com.deepin.ShotRecorder.Recorder.PanelStatus") &&
+    if (sessionBus.registerService("com.lingmo.ShotRecorder.Recorder.PanelStatus") &&
         sessionBus.registerObject(
-            "/com/deepin/ShotRecorder/Recorder/PanelStatus", this, QDBusConnection::ExportScriptableSlots)) {
+            "/com/lingmo/ShotRecorder/Recorder/PanelStatus", this, QDBusConnection::ExportScriptableSlots)) {
         qCInfo(dsrApp) << "dbus service registration success!";
         qCDebug(dsrApp) << "DBus service registration successful.";
     } else {
@@ -275,7 +275,7 @@ const QString ShotStartRecordPlugin::itemCommand(const QString &itemKey)
     if (itemKey == RecordShartPlugin) {
         qCDebug(dsrApp) << "(itemCommand) Input Common Plugin Widget!";
         qCDebug(dsrApp) << "Returning stopRecord DBus command.";
-        return "dbus-send --print-reply --dest=com.deepin.ScreenRecorder /com/deepin/ScreenRecorder "
+        return "dbus-send --print-reply --dest=com.lingmo.ScreenRecorder /com/lingmo/ScreenRecorder "
                "com.deepin.ScreenRecorder.stopRecord";
     } else {
         qCWarning(dsrApp) << "(itemCommand) Input unknow widget!";
@@ -430,7 +430,7 @@ void ShotStartRecordPlugin::onClickQuickPanel()
     m_proxyInter->requestSetAppletVisible(this, pluginName(), false);
     qCDebug(dsrApp) << "Get Record DBus Interface";
     QDBusInterface recordDBusInterface(
-        "com.deepin.ScreenRecorder", "/com/deepin/ScreenRecorder", "com.deepin.ScreenRecorder", QDBusConnection::sessionBus());
+        "com.lingmo.ScreenRecorder", "/com/lingmo/ScreenRecorder", "com.lingmo.ScreenRecorder", QDBusConnection::sessionBus());
     recordDBusInterface.asyncCall("stopRecord");
     qCDebug(dsrApp) << "Recorder plugin stop run!";
 }

@@ -116,8 +116,8 @@ void ShotStartPlugin::init(PluginProxyInterface *proxyInter)
     }
 
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
-    if (sessionBus.registerService("com.deepin.ShotRecorder.PanelStatus") &&
-        sessionBus.registerObject("/com/deepin/ShotRecorder/PanelStatus", this, QDBusConnection::ExportScriptableSlots)) {
+    if (sessionBus.registerService("com.lingmo.ShotRecorder.PanelStatus") &&
+        sessionBus.registerObject("/com/lingmo/ShotRecorder/PanelStatus", this, QDBusConnection::ExportScriptableSlots)) {
         qCInfo(dsrApp) << "dbus service registration success!";
         qCDebug(dsrApp) << "DBus service registration successful.";
     } else {
@@ -227,7 +227,7 @@ const QString ShotStartPlugin::itemCommand(const QString &itemKey)
         if (!m_isRecording) {
             qCDebug(dsrApp) << "Get DBus Interface";
             qCDebug(dsrApp) << "Not recording, returning StartScreenshot DBus command.";
-            return "dbus-send --print-reply --dest=com.deepin.Screenshot /com/deepin/Screenshot "
+            return "dbus-send --print-reply --dest=com.lingmo.Screenshot /com/lingmo/Screenshot "
                    "com.deepin.Screenshot.StartScreenshot";
         } else {
             qCDebug(dsrApp) << "Recording in progress, ignoring screenshot command";
@@ -354,7 +354,7 @@ void ShotStartPlugin::onClickQuickPanel()
         qCDebug(dsrApp) << "Get Shot DBus Interface";
         m_proxyInter->requestSetAppletVisible(this, pluginName(), false);
         QDBusInterface shotDBusInterface(
-            "com.deepin.Screenshot", "/com/deepin/Screenshot", "com.deepin.Screenshot", QDBusConnection::sessionBus());
+            "com.lingmo.Screenshot", "/com/lingmo/Screenshot", "com.lingmo.Screenshot", QDBusConnection::sessionBus());
         shotDBusInterface.asyncCall("StartScreenshot");
         qCDebug(dsrApp) << "Shot and Recorder plugin start run!";
         qCDebug(dsrApp) << "Not recording, initiating StartScreenshot DBus call.";

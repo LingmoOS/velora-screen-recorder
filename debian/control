@@ -1,4 +1,4 @@
-Source: velora-screen-recorder
+Source: lingmo-screen-recorder
 Section: utils
 Priority: optional
 Maintainer: Lingmo OS Team <team@lingmo.org>
@@ -22,7 +22,7 @@ Build-Depends: debhelper,
 # dde
  libdtk6gui-dev,
  libdtk6widget-dev,
- velora-tray-loader-dev | dde-dock-dev,
+ lingmo-tray-loader-dev | dde-dock-dev,
  libffmpegthumbnailer-dev,
  lingmo-desktop-base,
 # opencv
@@ -61,16 +61,16 @@ Build-Depends: debhelper,
  portaudio19-dev,
  libv4l-dev
 Standards-Version: 4.5.0
-Homepage: https://github.com/LingmoOS/velora-screen-recorder/
+Homepage: https://github.com/LingmoOS/lingmo-screen-recorder/
 
-Package: deepin-screen-recorder
+Package: lingmo-screen-recorder
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, 
  libgstreamer1.0-0 (>= 1.0.0), 
  ffmpeg, 
  libportaudio2
-Recommends: dde-session-ui,
- deepin-ocr,
+Recommends: lingmo-session-ui,
+ lingmo-ocr,
  gstreamer1.0-plugins-bad,
  uos-reporter,
  deepin-event-log
@@ -78,4 +78,4 @@ Conflicts: deepin-screenshot
 Replaces: deepin-screenshot,
  deepin-screen-recorder-plugin
 Description: Simple recorder tools for UOS
- Package: deepin-screen-recorder
+ Package: lingmo-screen-recorder

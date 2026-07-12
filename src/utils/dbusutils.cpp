@@ -72,16 +72,16 @@ bool DBusUtils::isAiAssistantAvailable()
     if (!bus.isConnected()) return false;
 
 
-    QDBusInterface copilot("com.deepin.copilot",
-                               "/com/deepin/copilot",
-                               "com.deepin.copilot",
+    QDBusInterface copilot("com.lingmo.copilot",
+                               "/com/lingmo/copilot",
+                               "com.lingmo.copilot",
                                bus);
     copilot.call("version");
 
 
     auto hasMethods = [&](const QString &service) -> bool {
         QDBusInterface intros(service,
-                              "/com/deepin/copilot",
+                              "/com/lingmo/copilot",
                               "org.freedesktop.DBus.Introspectable",
                               bus);
         if (!intros.isValid()) return false;
@@ -92,7 +92,7 @@ bool DBusUtils::isAiAssistantAvailable()
     };
 
     // 优先检测 deepin.copilot，再回退 iflytek
-    if (hasMethods("com.deepin.copilot")) return true;
+    if (hasMethods("com.lingmo.copilot")) return true;
     if (hasMethods("com.iflytek.aiassistant")) return true;
 
     return false;

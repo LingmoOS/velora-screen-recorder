@@ -122,12 +122,12 @@ int main(int argc, char *argv[])
     QDBusConnection dbus = QDBusConnection::sessionBus();
     qCDebug(dsrApp) << "Connected to DBus session bus.";
 
-    if (dbus.registerService("com.deepin.PinScreenShots")) {
-        qCDebug(dsrApp) << "DBus service 'com.deepin.PinScreenShots' registered successfully.";
+    if (dbus.registerService("com.lingmo.PinScreenShots")) {
+        qCDebug(dsrApp) << "DBus service 'com.lingmo.PinScreenShots' registered successfully.";
         // 第一次启动
         // 注册Dbus服务和对象
-        dbus.registerObject("/com/deepin/PinScreenShots", &instance);
-        qCDebug(dsrApp) << "DBus object '/com/deepin/PinScreenShots' registered.";
+        dbus.registerObject("/com/lingmo/PinScreenShots", &instance);
+        qCDebug(dsrApp) << "DBus object '/com/lingmo/PinScreenShots' registered.";
         // 初始化适配器
         new DbusPinScreenShotsAdaptor(&instance);
         qCDebug(dsrApp) << "DbusPinScreenShotsAdaptor initialized.";
@@ -144,11 +144,11 @@ int main(int argc, char *argv[])
         qCDebug(dsrApp) << "DBus service already registered.";
 
     } else {
-        qCDebug(dsrApp) << "DBus service 'com.deepin.PinScreenShots' already running.";
+        qCDebug(dsrApp) << "DBus service 'com.lingmo.PinScreenShots' already running.";
         // 第二次运行此应用，
         // 调用DBus接口，处理交给第一次调用的进程
         // 本进程退退出
-        PinScreenShotsInterface *pinS = new PinScreenShotsInterface("com.deepin.PinScreenShots", "/com/deepin/PinScreenShots", QDBusConnection::sessionBus(), &instance);
+        PinScreenShotsInterface *pinS = new PinScreenShotsInterface("com.lingmo.PinScreenShots", "/com/lingmo/PinScreenShots", QDBusConnection::sessionBus(), &instance);
         qCDebug(dsrApp) << "Calling openFile on existing DBus service.";
         pinS->openFile(QString(argv[1]));
         delete pinS;

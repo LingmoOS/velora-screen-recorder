@@ -92,7 +92,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-//    Q_CLASSINFO("D-Bus Interface", "com.deepin.ScreenRecorder")
+//    Q_CLASSINFO("D-Bus Interface", "com.lingmo.ScreenRecorder")
 
     //static const int CURSOR_BOUND;
     static const int RECORD_MIN_SIZE;

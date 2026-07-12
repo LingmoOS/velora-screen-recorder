@@ -28,7 +28,7 @@ public:
     }
 };
 
-ACCESS_PRIVATE_FIELD(voiceVolumeWatcher,    QScopedPointer<com::deepin::daemon::audio::Source>, m_defaultSource);
+ACCESS_PRIVATE_FIELD(voiceVolumeWatcher,    QScopedPointer<com::lingmo::daemon::audio::Source>, m_defaultSource);
 TEST_F(voiceVolumeWatcherTest, getystemAudioState)
 {
     m_voiceVolumeWatcher->getystemAudioState();

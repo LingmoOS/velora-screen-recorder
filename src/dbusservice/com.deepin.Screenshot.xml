@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
 SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
-<interface name="com.deepin.Screenshot">\n
+<interface name="com.lingmo.Screenshot">\n
     <method name="StartScreenshot"/>\n
     <method name="DelayScreenshot">\n
         <arg direction="in" type="x"/>\n

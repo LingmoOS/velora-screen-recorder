@@ -244,7 +244,7 @@ QString AudioUtils::getDefaultDeviceName(DefaultAudioType mode)
                 device.clear();
             }
         } else {
-            qCWarning(dsrApp) << "DBus Interface(com.deepin.daemon.Auido.Source) is invalid!";
+            qCWarning(dsrApp) << "DBus Interface(com.lingmo.daemon.Auido.Source) is invalid!";
         }
     } else {
         qCDebug(dsrApp) << "The passed parameter is incorrect! Please pass in 1 or 2!";
@@ -255,15 +255,15 @@ QString AudioUtils::getDefaultDeviceName(DefaultAudioType mode)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 QString AudioUtils::currentAudioChannelV20Impl()
 {
-    const QString serviceName{"com.deepin.daemon.Audio"};
+    const QString serviceName{"com.lingmo.daemon.Audio"};
 
-    QScopedPointer<com::deepin::daemon::Audio::Audio> audioInterface;
-    QScopedPointer<com::deepin::daemon::AudioSink::Sink> defaultSink;
+    QScopedPointer<com::lingmo::daemon::Audio::Audio> audioInterface;
+    QScopedPointer<com::lingmo::daemon::AudioSink::Sink> defaultSink;
 
     audioInterface.reset(
-        new com::deepin::daemon::Audio::Audio(serviceName, "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this));
+        new com::lingmo::daemon::Audio::Audio(serviceName, "/com/lingmo/daemon/Audio", QDBusConnection::sessionBus(), this));
 
-    defaultSink.reset(new com::deepin::daemon::AudioSink::Sink(
+    defaultSink.reset(new com::lingmo::daemon::AudioSink::Sink(
         serviceName, audioInterface->defaultSink().path(), QDBusConnection::sessionBus(), this));
     if (defaultSink->isValid()) {
         QString sinkName = defaultSink->name();
@@ -299,19 +299,19 @@ QString AudioUtils::currentAudioChannelV20Impl()
 QString AudioUtils::getDefaultDeviceNameV20Impl(DefaultAudioType mode)
 {
     QString device = "";
-    const QString serviceName{"com.deepin.daemon.Audio"};
+    const QString serviceName{"com.lingmo.daemon.Audio"};
 
-    QScopedPointer<com::deepin::daemon::Audio> audioInterface;
+    QScopedPointer<com::lingmo::daemon::Audio> audioInterface;
     audioInterface.reset(
-        new com::deepin::daemon::Audio(serviceName, "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this));
+        new com::lingmo::daemon::Audio(serviceName, "/com/lingmo/daemon/Audio", QDBusConnection::sessionBus(), this));
     if (!audioInterface->isValid()) {
-        qCWarning(dsrApp) << "DBus Interface(com.deepin.daemon.Auido) is invalid!";
+        qCWarning(dsrApp) << "DBus Interface(com.lingmo.daemon.Auido) is invalid!";
         return device;
     }
     if (mode == DefaultAudioType::Sink) {
         // 1.首先取出默认系统声卡
-        QScopedPointer<com::deepin::daemon::AudioSink::Sink> defaultSink;
-        defaultSink.reset(new com::deepin::daemon::AudioSink::Sink(
+        QScopedPointer<com::lingmo::daemon::AudioSink::Sink> defaultSink;
+        defaultSink.reset(new com::lingmo::daemon::AudioSink::Sink(
             serviceName, audioInterface->defaultSink().path(), QDBusConnection::sessionBus(), this));
         if (defaultSink->isValid()) {
             qCInfo(dsrApp) << "Default sink name is : " << defaultSink->name();
@@ -323,14 +323,14 @@ QString AudioUtils::getDefaultDeviceNameV20Impl(DefaultAudioType mode)
                 device += ".monitor";
             }
         } else {
-            qCWarning(dsrApp) << "DBus Interface(com.deepin.daemon.Auido.Sink) is invalid!";
+            qCWarning(dsrApp) << "DBus Interface(com.lingmo.daemon.Auido.Sink) is invalid!";
         }
         // 2.如果默认系统声卡不是物理声卡和蓝牙声卡，需找出真实的物理声卡
         if (!device.startsWith("alsa", Qt::CaseInsensitive) && !device.startsWith("blue", Qt::CaseInsensitive)) {
-            QList<QScopedPointer<com::deepin::daemon::AudioSink::Sink>> sinks;
-            QScopedPointer<com::deepin::daemon::AudioSink::Sink> realSink;
+            QList<QScopedPointer<com::lingmo::daemon::AudioSink::Sink>> sinks;
+            QScopedPointer<com::lingmo::daemon::AudioSink::Sink> realSink;
             for (int i = 0; i < audioInterface->sinks().size(); i++) {
-                realSink.reset(new com::deepin::daemon::AudioSink::Sink(
+                realSink.reset(new com::lingmo::daemon::AudioSink::Sink(
                     serviceName, audioInterface->sinks()[i].path(), QDBusConnection::sessionBus(), this));
                 if (realSink->isValid()) {
                     qCInfo(dsrApp) << "RealSink name is : " << realSink->name();
@@ -348,8 +348,8 @@ QString AudioUtils::getDefaultDeviceNameV20Impl(DefaultAudioType mode)
             }
         }
     } else if (mode == DefaultAudioType::Source) {
-        QScopedPointer<com::deepin::daemon::AudioSource::Source> defaultSource;
-        defaultSource.reset(new com::deepin::daemon::AudioSource::Source(
+        QScopedPointer<com::lingmo::daemon::AudioSource::Source> defaultSource;
+        defaultSource.reset(new com::lingmo::daemon::AudioSource::Source(
             serviceName, audioInterface->defaultSource().path(), QDBusConnection::sessionBus(), this));
         if (defaultSource->isValid()) {
             qCInfo(dsrApp) << "Default source name is : " << defaultSource->name();
@@ -361,7 +361,7 @@ QString AudioUtils::getDefaultDeviceNameV20Impl(DefaultAudioType mode)
                 device.clear();
             }
         } else {
-            qCWarning(dsrApp) << "DBus Interface(com.deepin.daemon.Auido.Source) is invalid!";
+            qCWarning(dsrApp) << "DBus Interface(com.lingmo.daemon.Auido.Source) is invalid!";
         }
     } else {
         qCDebug(dsrApp) << "The passed parameter is incorrect! Please pass in 1 or 2!";

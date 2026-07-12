@@ -74,7 +74,7 @@ Copyright: UnionTech Software Technology Co., Ltd.
 License: GPL-3.0-or-later
 
 # service
-Files: com.deepin.ScreenRecorder.service com.deepin.Screenshot.service
+Files: com.lingmo.ScreenRecorder.service com.lingmo.Screenshot.service
 Copyright: UnionTech Software Technology Co., Ltd.
 License: CC-BY-4.0
 

@@ -12,7 +12,7 @@
 class RecorderTablet : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.TabletScreenRecorder")
+    Q_CLASSINFO("D-Bus Interface", "com.lingmo.TabletScreenRecorder")
 public:
     explicit RecorderTablet(QObject *parent = nullptr);
     ~RecorderTablet();

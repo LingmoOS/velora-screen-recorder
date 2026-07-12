@@ -164,7 +164,7 @@ void MainWindow::onOpenOCR()
     qCDebug(dsrApp) << "Image saved before OCR.";
     // 测试
     if (m_ocrInterface == nullptr) {
-        m_ocrInterface = new OcrInterface("com.deepin.Ocr", "/com/deepin/Ocr", QDBusConnection::sessionBus(), this);
+        m_ocrInterface = new OcrInterface("com.lingmo.Ocr", "/com/lingmo/Ocr", QDBusConnection::sessionBus(), this);
         qCDebug(dsrApp) << "OCR interface created.";
     }
     m_ocrInterface->openImageAndName(m_image, m_imageName);
@@ -743,7 +743,7 @@ void MainWindow::initShortcut()
     QShortcut *Keyhelp = new QShortcut(QKeySequence("F1"), this);
     connect(Keyhelp, &QShortcut::activated, this, [ = ] {
         qCDebug(dsrApp) << "shortcut : Keyhelp (key: F1)";
-        QDBusInterface interFace("com.deepin.Manual.Open",
+        QDBusInterface interFace("com.lingmo.Manual.Open",
                                  "/com/deepin/Manual/Open",
                                  "com.deepin.Manual.Open",
                                  QDBusConnection::sessionBus());

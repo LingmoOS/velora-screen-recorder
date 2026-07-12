@@ -34,7 +34,7 @@ ZoomIndicator::ZoomIndicator(DWidget *parent,bool isRecord)
 {
     qCDebug(dsrApp) << "ZoomIndicator constructor called, isRecord:" << isRecord;
 
-    QDBusInterface wmInterface("com.deepin.wm",
+    QDBusInterface wmInterface("com.lingmo.wm",
                                "/com/deepin/wm",
                                "com.deepin.wm",
                                QDBusConnection::sessionBus());

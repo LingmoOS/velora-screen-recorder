@@ -23,8 +23,8 @@
 * @example:
 
     (1)
-    DrawInterface *m_draw = new DrawInterface("com.deepin.Draw",
-                                              "/com/deepin/Draw", QDBusConnection::sessionBus(), &a);
+    DrawInterface *m_draw = new DrawInterface("com.lingmo.Draw",
+                                              "/com/lingmo/Draw", QDBusConnection::sessionBus(), &a);
     QList<QString> list;
     list.append("/home/kingderzhang/Desktop/1.ddf");
     list.append("/home/kingderzhang/Desktop/2.ddf");
@@ -33,8 +33,8 @@
     m_draw->openFiles(list);
 
     (2)
-    DrawInterface *m_draw = new DrawInterface("com.deepin.Draw",
-                                              "/com/deepin/Draw", QDBusConnection::sessionBus(), &a);
+    DrawInterface *m_draw = new DrawInterface("com.lingmo.Draw",
+                                              "/com/lingmo/Draw", QDBusConnection::sessionBus(), &a);
     QList<QImage> list;
     list.append(QImage("/home/kingderzhang/Desktop/1.jpg"));
     list.append(QImage("/home/kingderzhang/Desktop/2.png"));
@@ -48,7 +48,7 @@ class DrawInterface: public QDBusAbstractInterface
 public:
     static inline const char *staticInterfaceName()
     {
-        return "com.deepin.Draw";
+        return "com.lingmo.Draw";
     }
 
 public:
@@ -102,7 +102,7 @@ Q_SIGNALS: // SIGNALS
 };
 
 namespace com {
-namespace deepin {
+namespace lingmo {
 typedef ::DrawInterface Draw;
 }
 }

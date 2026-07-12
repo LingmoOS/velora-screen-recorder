@@ -378,7 +378,7 @@ void MainWindow::initTreelandtAttributes() //initTreelandtAttributes
 #if defined __sw_64__
     if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosMilitary) {
         //在sw military上锁屏、熄屏情况下都要结束
-        QDBusConnection::sessionBus().connect("com.deepin.SessionManager",
+        QDBusConnection::sessionBus().connect("com.lingmo.SessionManager",
                                               "/com/deepin/SessionManager",
                                               "org.freedesktop.DBus.Properties",
                                               "PropertiesChanged",
@@ -1321,7 +1321,7 @@ void MainWindow::initSaveShortcut()
 void MainWindow::onHelp()
 {
     qCDebug(dsrApp) << "onHelp";
-    QDBusInterface iface("com.deepin.Manual.Open", "/com/deepin/Manual/Open", "com.deepin.Manual.Open");
+    QDBusInterface iface("com.lingmo.Manual.Open", "/com/lingmo/Manual/Open", "com.lingmo.Manual.Open");
     if (iface.isValid()) {
         iface.call("ShowManual", "deepin-screen-recorder");
         // 录屏的时候，如果焦点还在录屏应用上，会导致录屏退出。添加条件判断，修复。
@@ -3737,7 +3737,7 @@ void MainWindow::changeShotToolEvent(const QString &func)
         QJsonObject obj{{"tid", EventLogUtils::StartOcr}, {"version", QCoreApplication::applicationVersion()}};
         EventLogUtils::get().writeLogs(obj);
         // 调起OCR识别界面， 传入截图路径
-        m_ocrInterface = new OcrInterface("com.deepin.Ocr", "/com/deepin/Ocr", QDBusConnection::sessionBus(), this);
+        m_ocrInterface = new OcrInterface("com.lingmo.Ocr", "/com/lingmo/Ocr", QDBusConnection::sessionBus(), this);
         int delayTime = 0;
         // 直接通过快捷键启动时需要延时100ms再进行保存，防止未获取到选择区域的名称
         if (m_isDirectStartOcr) {
@@ -3759,7 +3759,7 @@ void MainWindow::changeShotToolEvent(const QString &func)
     } else if (func == "pinScreenshots") {
         m_functionType = status::pinscreenshots;
         m_pinInterface = new PinScreenShotsInterface(
-            "com.deepin.PinScreenShots", "/com/deepin/PinScreenShots", QDBusConnection::sessionBus(), this);
+            "com.lingmo.PinScreenShots", "/com/lingmo/PinScreenShots", QDBusConnection::sessionBus(), this);
         // 保存贴图到剪贴板
         saveScreenShot();
         m_pinInterface->openImageAndName(m_resultPixmap.toImage(), m_saveFileName, QPoint(recordX, recordY));
@@ -3951,7 +3951,7 @@ void MainWindow::onAiAssistantSelected(int func)
     qCWarning(dsrApp) << "AI: screenshot saved to:" << m_saveFileName;
 
 
-    QDBusInterface copilot("com.deepin.copilot",
+    QDBusInterface copilot("com.lingmo.copilot",
                                "/com/deepin/copilot",
                                "com.deepin.copilot",
                                QDBusConnection::sessionBus());
@@ -4147,7 +4147,7 @@ void MainWindow::sendNotify(SaveAction saveAction, QString saveFilePath, const b
     if (status::pinscreenshots == m_functionType)
         return;
     if (Utils::is3rdInterfaceStart) {
-        QDBusMessage msg = QDBusMessage::createSignal("/com/deepin/Screenshot", "com.deepin.Screenshot", "Done");
+        QDBusMessage msg = QDBusMessage::createSignal("/com/lingmo/Screenshot", "com.lingmo.Screenshot", "Done");
         msg << saveFilePath;
         QDBusConnection::sessionBus().send(msg);
         exitApp();
@@ -6335,7 +6335,7 @@ void MainWindow::onLockScreenEvent(QDBusMessage msg)
     }
     QString interfaceName = msg.arguments().at(0).toString();
     // diff interface service for V23/V20
-    if (interfaceName == "org.deepin.dde.SessionManager1" || interfaceName == "org.deepin.dde.SessionManager") {
+    if (interfaceName == "org.lingmo.SessionManager1" || interfaceName == "org.lingmo.SessionManager") {
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
         foreach (const QString &prop, keys) {
@@ -6389,7 +6389,7 @@ void MainWindow::onLockedStopRecord(const QString &name, QVariantMap map, const 
 void MainWindow::onOpenScrollShotHelp()
 {
     QDBusInterface interFace(
-        "com.deepin.Manual.Open", "/com/deepin/Manual/Open", "com.deepin.Manual.Open", QDBusConnection::sessionBus());
+        "com.lingmo.Manual.Open", "/com/lingmo/Manual/Open", "com.lingmo.Manual.Open", QDBusConnection::sessionBus());
     // 帮助手册跳转到子标题，传入子标题标签(标签文档内唯一，固定为英文，与翻译无关)
     QList<QVariant> arg;
     arg << (QCoreApplication::applicationName())  // 应用名称

@@ -21,7 +21,7 @@ public:
     QList<QImage> list;
     virtual void SetUp() override{
         std::cout << "start DrawInterfaceTest" << std::endl;
-        m_draw = new DrawInterface("com.deepin.Draw", "/com/deepin/Draw", QDBusConnection::sessionBus(), nullptr);
+        m_draw = new DrawInterface("com.lingmo.Draw", "/com/lingmo/Draw", QDBusConnection::sessionBus(), nullptr);
     }
 
     virtual void TearDown() override{

@@ -19,7 +19,7 @@ public:
     OcrInterface *m_ocrInterface;
     virtual void SetUp() override{
         std::cout << "start OcrInterfaceTest" << std::endl;
-        m_ocrInterface = new OcrInterface("com.deepin.Ocr", "/com/deepin/Ocr", QDBusConnection::sessionBus());
+        m_ocrInterface = new OcrInterface("com.lingmo.Ocr", "/com/lingmo/Ocr", QDBusConnection::sessionBus());
     }
 
     virtual void TearDown() override{

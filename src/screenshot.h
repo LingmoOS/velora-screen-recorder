@@ -15,7 +15,7 @@ class Screenshot : public QObject
 {
     Q_OBJECT
 
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.ScreenRecorder")
+    Q_CLASSINFO("D-Bus Interface", "com.lingmo.ScreenRecorder")
     Q_PROPERTY(bool IsRecording READ isRecording)
 public:
     explicit Screenshot(QObject *parent = nullptr);

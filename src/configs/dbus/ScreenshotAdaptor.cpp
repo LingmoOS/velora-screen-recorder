@@ -29,37 +29,37 @@ ScreenshotAdaptor::~ScreenshotAdaptor()
 
 void ScreenshotAdaptor::DelayScreenshot(qlonglong in0)
 {
-    // handle method call com.deepin.Screenshot.DelayScreenshot
+    // handle method call com.lingmo.Screenshot.DelayScreenshot
     QMetaObject::invokeMethod(parent(), "DelayScreenshot", Q_ARG(qlonglong, in0));
 }
 
 void ScreenshotAdaptor::FullscreenScreenshot()
 {
-    // handle method call com.deepin.Screenshot.FullscreenScreenshot
+    // handle method call com.lingmo.Screenshot.FullscreenScreenshot
     QMetaObject::invokeMethod(parent(), "FullscreenScreenshot");
 }
 
 void ScreenshotAdaptor::NoNotifyScreenshot()
 {
-    // handle method call com.deepin.Screenshot.NoNotifyScreenshot
+    // handle method call com.lingmo.Screenshot.NoNotifyScreenshot
     QMetaObject::invokeMethod(parent(), "NoNotifyScreenshot");
 }
 
 void ScreenshotAdaptor::SavePathScreenshot(const QString &in0)
 {
-    // handle method call com.deepin.Screenshot.SavePathScreenshot
+    // handle method call com.lingmo.Screenshot.SavePathScreenshot
     QMetaObject::invokeMethod(parent(), "SavePathScreenshot", Q_ARG(QString, in0));
 }
 
 void ScreenshotAdaptor::StartScreenshot()
 {
-    // handle method call com.deepin.Screenshot.StartScreenshot
+    // handle method call com.lingmo.Screenshot.StartScreenshot
     QMetaObject::invokeMethod(parent(), "StartScreenshot");
 }
 
 void ScreenshotAdaptor::TopWindowScreenshot()
 {
-    // handle method call com.deepin.Screenshot.TopWindowScreenshot
+    // handle method call com.lingmo.Screenshot.TopWindowScreenshot
     QMetaObject::invokeMethod(parent(), "TopWindowScreenshot");
 }
 

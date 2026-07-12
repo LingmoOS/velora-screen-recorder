@@ -63,7 +63,7 @@ TEST_F(TestShotStartRecordPlugin, itemTipsWidget)
 TEST_F(TestShotStartRecordPlugin, itemCommand)
 {
     EXPECT_TRUE(
-        "dbus-send --print-reply --dest=com.deepin.ScreenRecorder /com/deepin/ScreenRecorder com.deepin.ScreenRecorder.stopRecord" ==
+        "dbus-send --print-reply --dest=com.lingmo.ScreenRecorder /com/lingmo/ScreenRecorder com.lingmo.ScreenRecorder.stopRecord" ==
         m_shotStartRecordPlugin->itemCommand(PLUGIN_NAME));
     EXPECT_TRUE(nullptr == m_shotStartRecordPlugin->itemCommand("test"));
 }

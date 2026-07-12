@@ -17,14 +17,14 @@ class QVariant;
 QT_END_NAMESPACE
 
 /*
- * Adaptor class for interface com.deepin.daemon.Zone
+ * Adaptor class for interface com.lingmo.daemon.Zone
  */
 class ZoneAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.daemon.Zone")
+    Q_CLASSINFO("D-Bus Interface", "com.lingmo.daemon.Zone")
     Q_CLASSINFO("D-Bus Introspection", ""
-"  <interface name=\"com.deepin.daemon.Zone\">\n"
+"  <interface name=\"com.lingmo.daemon.Zone\">\n"
 "    <method name=\"BottomLeftAction\">\n"
 "      <arg direction=\"out\" type=\"s\"/>\n"
 "    </method>\n"

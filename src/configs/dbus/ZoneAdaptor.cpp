@@ -29,7 +29,7 @@ ZoneAdaptor::~ZoneAdaptor()
 
 QString ZoneAdaptor::BottomLeftAction()
 {
-    // handle method call com.deepin.daemon.Zone.BottomLeftAction
+    // handle method call com.lingmo.daemon.Zone.BottomLeftAction
     QString out0;
     QMetaObject::invokeMethod(parent(), "BottomLeftAction", Q_RETURN_ARG(QString, out0));
     return out0;
@@ -37,7 +37,7 @@ QString ZoneAdaptor::BottomLeftAction()
 
 QString ZoneAdaptor::BottomRightAction()
 {
-    // handle method call com.deepin.daemon.Zone.BottomRightAction
+    // handle method call com.lingmo.daemon.Zone.BottomRightAction
     QString out0;
     QMetaObject::invokeMethod(parent(), "BottomRightAction", Q_RETURN_ARG(QString, out0));
     return out0;
@@ -45,37 +45,37 @@ QString ZoneAdaptor::BottomRightAction()
 
 void ZoneAdaptor::EnableZoneDetected(bool in0)
 {
-    // handle method call com.deepin.daemon.Zone.EnableZoneDetected
+    // handle method call com.lingmo.daemon.Zone.EnableZoneDetected
     QMetaObject::invokeMethod(parent(), "EnableZoneDetected", Q_ARG(bool, in0));
 }
 
 void ZoneAdaptor::SetBottomLeft(const QString &in0)
 {
-    // handle method call com.deepin.daemon.Zone.SetBottomLeft
+    // handle method call com.lingmo.daemon.Zone.SetBottomLeft
     QMetaObject::invokeMethod(parent(), "SetBottomLeft", Q_ARG(QString, in0));
 }
 
 void ZoneAdaptor::SetBottomRight(const QString &in0)
 {
-    // handle method call com.deepin.daemon.Zone.SetBottomRight
+    // handle method call com.lingmo.daemon.Zone.SetBottomRight
     QMetaObject::invokeMethod(parent(), "SetBottomRight", Q_ARG(QString, in0));
 }
 
 void ZoneAdaptor::SetTopLeft(const QString &in0)
 {
-    // handle method call com.deepin.daemon.Zone.SetTopLeft
+    // handle method call com.lingmo.daemon.Zone.SetTopLeft
     QMetaObject::invokeMethod(parent(), "SetTopLeft", Q_ARG(QString, in0));
 }
 
 void ZoneAdaptor::SetTopRight(const QString &in0)
 {
-    // handle method call com.deepin.daemon.Zone.SetTopRight
+    // handle method call com.lingmo.daemon.Zone.SetTopRight
     QMetaObject::invokeMethod(parent(), "SetTopRight", Q_ARG(QString, in0));
 }
 
 QString ZoneAdaptor::TopLeftAction()
 {
-    // handle method call com.deepin.daemon.Zone.TopLeftAction
+    // handle method call com.lingmo.daemon.Zone.TopLeftAction
     QString out0;
     QMetaObject::invokeMethod(parent(), "TopLeftAction", Q_RETURN_ARG(QString, out0));
     return out0;
@@ -83,7 +83,7 @@ QString ZoneAdaptor::TopLeftAction()
 
 QString ZoneAdaptor::TopRightAction()
 {
-    // handle method call com.deepin.daemon.Zone.TopRightAction
+    // handle method call com.lingmo.daemon.Zone.TopRightAction
     QString out0;
     QMetaObject::invokeMethod(parent(), "TopRightAction", Q_RETURN_ARG(QString, out0));
     return out0;

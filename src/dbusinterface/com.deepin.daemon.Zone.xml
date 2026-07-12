@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
 SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
-<interface name="com.deepin.daemon.Zone">\n
+<interface name="com.lingmo.daemon.Zone">\n
         <method name="BottomLeftAction">\n
              <arg type="s" direction="out"></arg>\n
         </method>\n

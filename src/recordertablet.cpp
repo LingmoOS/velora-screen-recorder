@@ -22,20 +22,20 @@ RecorderTablet::RecorderTablet(QObject *parent) : QObject(parent)
 
     QDBusConnection sb = QDBusConnection::sessionBus();
     bool result;
-    result = sb.registerService("com.deepin.TabletScreenRecorder");
+    result = sb.registerService("com.lingmo.TabletScreenRecorder");
     if (!result) {
         qCWarning(dsrApp) << "Failed to register DBus service:" << sb.lastError().message();
     } else {
-        qCDebug(dsrApp) << "DBus service 'com.deepin.TabletScreenRecorder' registered successfully.";
+        qCDebug(dsrApp) << "DBus service 'com.lingmo.TabletScreenRecorder' registered successfully.";
     }
 
-    result = sb.registerObject("/com/deepin/TabletScreenRecorder",
+    result = sb.registerObject("/com/lingmo/TabletScreenRecorder",
                                "com.deepin.TabletScreenRecorder", this,
                                QDBusConnection::ExportScriptableSignals | QDBusConnection::ExportScriptableSlots);
     if (!result) {
         qCWarning(dsrApp) << "Failed to register DBus object:" << sb.lastError().message();
     } else {
-        qCDebug(dsrApp) << "DBus object '/com/deepin/TabletScreenRecorder' registered successfully.";
+        qCDebug(dsrApp) << "DBus object '/com/lingmo/TabletScreenRecorder' registered successfully.";
     }
 }
 
@@ -87,7 +87,7 @@ void RecorderTablet::stop()
         qCDebug(dsrApp) << "Status bar timer stopped.";
     }
     // 下拉面板图标设置为非录屏状态
-    QDBusMessage msg = QDBusMessage::createSignal("/com/deepin/TabletScreenRecorder", "com.deepin.TabletScreenRecorder", "DropDownIconChange");
+    QDBusMessage msg = QDBusMessage::createSignal("/com/lingmo/TabletScreenRecorder", "com.lingmo.TabletScreenRecorder", "DropDownIconChange");
     msg << QString("%1/%2").arg(RESOURCES_PATH).arg("fast-icon_recording_normal.svg");
     QDBusConnection::sessionBus().send(msg);
     qCDebug(dsrApp) << "Sent DBus signal to change dropdown icon to normal.";
@@ -104,7 +104,7 @@ void RecorderTablet::update()
     qCDebug(dsrApp) << "RecorderTablet update() called.";
 
     //下拉面板发送dbus信号， 倒计时图片
-    QDBusMessage msg = QDBusMessage::createSignal("/com/deepin/TabletScreenRecorder", "com.deepin.TabletScreenRecorder", "DropDownIconChange");
+    QDBusMessage msg = QDBusMessage::createSignal("/com/lingmo/TabletScreenRecorder", "com.lingmo.TabletScreenRecorder", "DropDownIconChange");
     msg << QString("%1/counting%2.svg").arg(RESOURCES_PATH).arg(showCountdownCounter);
     QDBusConnection::sessionBus().send(msg);
     qCDebug(dsrApp) << "Sent DBus signal to change dropdown icon to countdown image:" << showCountdownCounter << ".";
@@ -121,7 +121,7 @@ void RecorderTablet::startStatusBar()
 {
     qCDebug(dsrApp) << "RecorderTablet startStatusBar() called.";
     // 下拉面板图标设置为录屏状态
-    QDBusMessage msg = QDBusMessage::createSignal("/com/deepin/TabletScreenRecorder", "com.deepin.TabletScreenRecorder", "DropDownIconChange");
+    QDBusMessage msg = QDBusMessage::createSignal("/com/lingmo/TabletScreenRecorder", "com.lingmo.TabletScreenRecorder", "DropDownIconChange");
     msg << QString("%1/%2").arg(RESOURCES_PATH).arg("fast-icon_recording_active.svg");
     QDBusConnection::sessionBus().send(msg);
     qCDebug(dsrApp) << "Sent DBus signal to change dropdown icon to active recording icon.";
@@ -143,7 +143,7 @@ void RecorderTablet::updateStatusBar()
 {
     qCDebug(dsrApp) << "RecorderTablet updateStatusBar() called.";
     //状态栏发送dbus信号
-    QDBusMessage msg = QDBusMessage::createSignal("/com/deepin/TabletScreenRecorder", "com.deepin.TabletScreenRecorder", "StatusBarIconChange");
+    QDBusMessage msg = QDBusMessage::createSignal("/com/lingmo/TabletScreenRecorder", "com.lingmo.TabletScreenRecorder", "StatusBarIconChange");
     msg << QString("%1/recording%2.svg").arg(RESOURCES_PATH).arg(flashTrayIconCounter % 2);
     QDBusConnection::sessionBus().send(msg);
     qCDebug(dsrApp) << "Sent DBus signal to change status bar icon.";
@@ -153,7 +153,7 @@ void RecorderTablet::updateStatusBar()
 void RecorderTablet::sendRecorderState(const bool state)
 {
     qCDebug(dsrApp) << "RecorderTablet sendRecorderState() called with state:" << state << ".";
-    QDBusMessage msg = QDBusMessage::createSignal("/com/deepin/ScreenRecorder", "com.deepin.ScreenRecorder", "RecorderState");
+    QDBusMessage msg = QDBusMessage::createSignal("/com/lingmo/ScreenRecorder", "com.lingmo.ScreenRecorder", "RecorderState");
     msg << state;
     QDBusConnection::sessionBus().send(msg);
     qCDebug(dsrApp) << "Sent DBus signal 'RecorderState' with state:" << state << ".";

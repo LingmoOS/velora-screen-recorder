@@ -130,7 +130,7 @@ Name[zh_HK]=Deepin 螢幕錄影
 Name[zh_TW]=Deepin 螢幕錄影
 
 [Desktop Action FullScreenShot]
-Exec=dbus-send --print-reply --dest=com.deepin.Screenshot /com/deepin/Screenshot com.deepin.Screenshot.FullscreenScreenshot
+Exec=dbus-send --print-reply --dest=com.lingmo.Screenshot /com/lingmo/Screenshot com.lingmo.Screenshot.FullscreenScreenshot
 Name=Full Screenshot
 
 # Translations:
@@ -167,7 +167,7 @@ Name[zh_HK]=全屏截圖
 Name[zh_TW]=全屏截圖
 
 [Desktop Action DelayShot]
-Exec=dbus-send --print-reply --dest=com.deepin.Screenshot /com/deepin/Screenshot com.deepin.Screenshot.DelayScreenshot int64:5
+Exec=dbus-send --print-reply --dest=com.lingmo.Screenshot /com/lingmo/Screenshot com.lingmo.Screenshot.DelayScreenshot int64:5
 Name=Delay Screenshot
 
 # Translations:

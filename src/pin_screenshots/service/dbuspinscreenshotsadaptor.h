@@ -21,9 +21,9 @@ class DbusPinScreenShotsAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
     //类的附加信息 可以为类的元对象定义“名称--值”
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.PinScreenShots")
+    Q_CLASSINFO("D-Bus Interface", "com.lingmo.PinScreenShots")
     Q_CLASSINFO("D-Bus Introspection", ""
-                "  <interface name=\"com.deepin.PinScreenShots\">\n"
+                "  <interface name=\"com.lingmo.PinScreenShots\">\n"
 
                 "    <method name=\"openImage\">\n"
                 "      <arg direction=\"in\" type=\"ay\" name=\"openImage\"/>\n"
