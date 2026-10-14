@@ -3,7 +3,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 cmake_minimum_required( VERSION 3.1.0 )
-set(PLUGIN_NAME "deepin-screen-recorder-plugin")
+# 必须是 shot-start-plugin：与自己的 gschema 模块名
+# com.deepin.dde.dock.module.shot-start-plugin 一致。
+# 原先写的 deepin-screen-recorder-plugin 与 recordtime 同名，两者会安装到
+# 同一个 lib/dde-dock/plugins/deepin-screen-recorder-plugin.so 互相覆盖，
+# 而且 dock 里按名字把 deepin-screen-recorder-plugin 排除了（那是录屏计时插件）。
+set(PLUGIN_NAME "shot-start-plugin")
 
 project(PLUGIN_NAME)
 

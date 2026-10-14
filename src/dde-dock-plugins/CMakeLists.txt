@@ -7,6 +7,8 @@ set (PROJECT_NAME dde-dock-plugins)
 project( ${PROJECT_NAME} )
 
 add_subdirectory(recordtime)
+# 截图快捷面板插件（shot-start-plugin）：此前因与 recordtime 同名而未构建
+add_subdirectory(shotstart)
 
 
 

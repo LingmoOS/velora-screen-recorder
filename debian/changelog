@@ -1,3 +1,19 @@
+velora-screen-recorder (6.6.31.lingmo5u1) unstable; urgency=medium
+
+  * fix: 恢复任务栏控制面板里的截屏按钮
+    - 截图插件 src/dde-dock-plugins/shotstart 未参与构建：
+      dde-dock-plugins/CMakeLists.txt 里只剩 add_subdirectory(recordtime)
+    - 根因是它与 recordtime 用了同一个 PLUGIN_NAME(deepin-screen-recorder-plugin)，
+      两者安装到同一个 lib/dde-dock/plugins/deepin-screen-recorder-plugin.so 会
+      互相覆盖；且 dock 侧正是按这个名字排除插件的（那是录屏计时插件）。
+      改成它自己的 gschema 模块名 shot-start-plugin 并恢复构建
+    - flags() 保持不变：编译用的是 velora-tray-loader 的 dde-dock/constants.h
+      (DOCK_API_VERSION 2.0.0)，其中 Type_Quick/Quick_Panel_Single/
+      Attribute_Normal 都有定义（0x02|0x40|0xe00）
+    - dock 侧无需改动：排除的名字与新的 shot-start-plugin 不冲突
+
+ -- Lingmo OS Team <team@lingmo.org>  Wed, 14 Oct 2026 17:11:09 +0800
+
 velora-screen-recorder (6.6.30.lingmo.1) unstable; urgency=medium
 
   * new release for Lingmo OS.
